@@ -1,0 +1,18 @@
+{
+  "name": "require-config",
+  "version": "0.0.1",
+  "description": "Auto-create RequireJS configuration",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "RequireJS"
+  ],
+  "author": "William Carter",
+  "license": "N/A",
+  "devDependencies": {
+    "coa": "^0.4.1",
+    "requirejs": "^2.1.15"
+  }
+}
