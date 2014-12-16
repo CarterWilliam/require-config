@@ -1,0 +1,20 @@
+<html>
+    <script src="node_modules/requirejs/require.js"></script>
+
+    <script>
+        console.log("Executing require");
+
+        require.config({
+            shim: {
+                "resources/browser-global": { exports: "browserGlobal" }
+            }
+        })
+
+        require(["resources/browser-global"], function(browserGlobal){
+            console.log("LOADED");
+            console.log(browserGlobal);
+            console.log(require.s.contexts._.defined);
+            console.log(require.s.contexts._.registry);
+        });
+    </script>
+</html>

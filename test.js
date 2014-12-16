@@ -21,11 +21,15 @@ var requirejs = require("requirejs");
 //     console.log(requirejs.s.contexts._.registry);
 // });
 
-requirejs(["resources/browser-global"], function(lib) {
-    console.log("browser-global");
-    console.log(lib);
-    console.log(requirejs.s.contexts._.defined);
-    console.log(requirejs.s.contexts._.registry);
+// requirejs(["resources/browser-global"], function(lib) {
+//     console.log("browser-global");
+//     console.log(lib);
+//     console.log(requirejs.s.contexts._.defined);
+//     console.log(requirejs.s.contexts._.registry);
+//
+//     console.log(browserGlobal);
+// });
 
-    console.log(browserGlobal);
-});
+console.log(require("./resources/browser-global"));
+
+console.log(requirejs(["resources/browser-global"]));
