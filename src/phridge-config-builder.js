@@ -10,28 +10,26 @@ phridge.spawn({
     loadImages: false
 }).then(function (phantom) {
 
-    console.log("inside phantom process");
 
     var page = phantom.createPage();
 
-    page.run(requirejsPath, function (requirejsPath, resolve, reject) {
-        console.log("phantom logging");
-        console.log(requirejsPath);
+    page.run(libraryPath, function (libPath, resolve, reject) {
 
-        script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.async = false;
+        var script = document.createElement('script');
         script.onload = function() {
-            console.log("Script loaded");
-            resolve(Math.PI);
+            alert("Script loaded and ready");
+            requirejs([ libPath ], function(amd) {
+                resolve(amd);
+            });
+
         };
-        script.src = requirejsPath;
-        console.log("Add script");
+        script.src = "http://requirejs.org/docs/release/2.1.15/minified/require.js";
         document.getElementsByTagName('head')[0].appendChild(script);
 
-
-    }).then(function (pi) {
-        console.log(pi); // true
+    }).then(function(returned) {
+        console.log("done");
+        console.log(returned);
         phantom.dispose();
     });
+
 });
