@@ -1,6 +1,7 @@
 require("es6-shim");
 var path = require("path");
 var requirejs = require("requirejs");
+var Utils = require("./utils.js");
 
 function buildConfig(mainFile, inputFiles, callback) {
     console.log("buildConfig()");
@@ -19,10 +20,10 @@ function buildConfig(mainFile, inputFiles, callback) {
 
         if(inputFilePaths.length!==0) {
             var headFile=inputFilePaths.pop();
-            var initialRegistry = Object.keys(clone(requirejs.s.contexts._.registry));
+            var initialRegistry = Object.keys(Utils.clone(requirejs.s.contexts._.registry));
 
             requirejs([headFile], function(){
-                var currentRegistry = Object.keys(clone(requirejs.s.contexts._.registry));
+                var currentRegistry = Object.keys(Utils.clone(requirejs.s.contexts._.registry));
 
                 var moduleName;
                 if(initialRegistry.length!==currentRegistry.length) {
@@ -49,9 +50,4 @@ function buildConfig(mainFile, inputFiles, callback) {
 
 module.exports = {
     buildConfig: buildConfig
-}
-
-
-function clone(object) {
-    return JSON.parse(JSON.stringify(object));
 }
