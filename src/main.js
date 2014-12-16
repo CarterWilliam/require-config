@@ -1,3 +1,5 @@
+var configPrinter = require("./config-printer.js");
+
 function main(mainFile, inputFiles, output, browser) {
 
     console.log();
@@ -16,7 +18,9 @@ function main(mainFile, inputFiles, output, browser) {
         console.log();
         console.log(configuration);
         console.log();
+
     });
+
 }
 
 module.exports = {

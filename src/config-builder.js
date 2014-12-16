@@ -22,7 +22,7 @@ function buildConfig(mainFile, inputFiles, callback) {
 
     function processInputFileIteration(inputFilePaths, callback) {
 
-        if(inputFilePaths.length!==0) {
+        if(inputFilePaths.length !== 0) {
             var headFile = inputFilePaths.pop();
             var initialRegistry = Object.keys(Utils.clone(requirejs.s.contexts._.registry));
 

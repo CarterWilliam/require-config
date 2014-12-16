@@ -2,3 +2,5 @@
 function configPrinter(ourConfig){
 	console.log("require.config(" + JSON.stringify(ourConfig) + ");");
 }
+
+module.exports = configPrinter;
