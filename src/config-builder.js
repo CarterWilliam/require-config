@@ -2,9 +2,7 @@ require("es6-shim");
 var path = require("path");
 var requirejs = require("requirejs");
 var Utils = require("./utils.js");
-var fs = require("fs");
-var vm = require("vm");
-
+var shimEntry = require("./shim-entry.js")
 
 function buildConfig(mainFile, inputFiles, callback) {
     console.log("config-builder - buildConfig()");
@@ -24,18 +22,23 @@ function buildConfig(mainFile, inputFiles, callback) {
 
         if(inputFilePaths.length !== 0) {
             var headFile = inputFilePaths.pop();
-            var initialRegistry = Object.keys(Utils.clone(requirejs.s.contexts._.registry));
+            console.log(headFile);
+            var initialRegistry = Utils.extractRegistry(requirejs);
 
             requirejs([headFile], function(amdModule){
-                var currentRegistry = Object.keys(Utils.clone(requirejs.s.contexts._.registry));
+                var currentRegistry = Utils.extractRegistry(requirejs);
 
                 if (amdModule) {
                     // Module is AMD
+                    console.log("AMD");
                     var moduleName = path.basename(headFile,'.js');
                     config.paths[moduleName] = path.relative(configBasePath, headFile);
 
                 } else if(initialRegistry.length !== currentRegistry.length) {
                     // Module is AMD with explicit name
+                    console.log("Explicitly named AMD");
+                    console.log(initialRegistry);
+                    console.log(currentRegistry);
                     currentRegistry.forEach(function(registryEntry) {
                         if(initialRegistry.indexOf(registryEntry) === -1 && !registryEntry.startsWith("_@")) {
                             config.paths[registryEntry] = path.relative(configBasePath, headFile);
@@ -44,22 +47,15 @@ function buildConfig(mainFile, inputFiles, callback) {
 
                 } else {
                     // Module is a browser global
+                    console.log("Browser global");
                     moduleName = path.basename(headFile,'.js');
                     config.paths[moduleName] = path.relative(configBasePath, headFile);
+                    console.log(moduleName);
 
-
-                    // Shim etc.
-                    var scriptContext = {};
-                    var script = fs.readFileSync(headFile);
-
-                    vm.runInNewContext(script, scriptContext);
-
-                    console.log(scriptContext);
-                    var exportables = Object.keys(scriptContext);
-                    if (exportables.length === 1) {
-                        // single browser global!
-                        console.log("adding to shim config");
-                        config.shim[moduleName] = { exports: exportables[0] };
+                    // Shim
+                    var maybeShim = shimEntry(headFile);
+                    if (maybeShim) {
+                        config.shim[moduleName] = maybeShim;
                     }
 
                 }

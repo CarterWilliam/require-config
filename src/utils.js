@@ -6,7 +6,7 @@ function clone(object) {
 
 // Extract the 'registry' from a RequireJS instance, giving all defined, explicitly named modules.
 function extractRegistry(requirejs) {
-    var completeRegistry = Object.keys(clone(registry.s.contexts._.registry));
+    var completeRegistry = Object.keys(clone(requirejs.s.contexts._.registry));
     return completeRegistry.filter(function(moduleName) {
         return !moduleName.startsWith("_@"); // module maps used by requirejs internally.
     });
