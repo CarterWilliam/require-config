@@ -5,12 +5,15 @@
         console.log("Executing require");
 
         require.config({
+            paths: {
+                "browser-global": "resources/browser-global"
+            },
             shim: {
-                "resources/browser-global": { exports: "browserGlobal" }
+                "browser-global": { exports: "browserGlobal" }
             }
         })
 
-        require(["resources/browser-global"], function(browserGlobal){
+        require(["browser-global"], function(browserGlobal){
             console.log("LOADED");
             console.log(browserGlobal);
             console.log(require.s.contexts._.defined);

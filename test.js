@@ -1,11 +1,11 @@
 var requirejs = require("requirejs");
 
-// requirejs(["resources/explicitly-named"], function(lib) {
-//     console.log("explicitly-named");
-//     console.log(lib);
-//     console.log(requirejs.s.contexts._.defined);
-//     console.log(requirejs.s.contexts._.registry);
-// });
+requirejs(["resources/angular-moment"], function(lib) {
+    console.log("explicitly-named");
+    console.log(lib);
+    console.log(requirejs.s.contexts._.defined);
+    console.log(requirejs.s.contexts._.registry);
+});
 
 // requirejs(["resources/amd"], function(lib) {
 //     console.log("amd");
@@ -30,6 +30,6 @@ var requirejs = require("requirejs");
 //     console.log(browserGlobal);
 // });
 
-console.log(require("./resources/browser-global"));
-
-console.log(requirejs(["resources/browser-global"]));
+// console.log(require("./resources/browser-global"));
+//
+// console.log(requirejs(["resources/browser-global"]));

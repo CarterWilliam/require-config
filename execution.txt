@@ -1,1 +1,1 @@
-node require-config -m /Users/cartew01/workspace/childrens-promo-tool/trunk/components/childrens-promo-tool/public/javascripts/main.js -i /Users/cartew01/workspace/childrens-promo-tool/trunk/components/childrens-promo-tool/public/libraries/angular/angular.js
+node require-config -m src/main.js -i /Users/cartew01/workspace/require-config/resources/browser-global.js -i resources/amd.js -i resources/explicitly-named.js
