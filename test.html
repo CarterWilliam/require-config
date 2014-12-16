@@ -2,22 +2,29 @@
     <script src="node_modules/requirejs/require.js"></script>
 
     <script>
-        console.log("Executing require");
+        // console.log("Executing require");
+        //
+        // require.config({
+        //     paths: {
+        //         "browser-global": "resources/browser-global"
+        //     },
+        //     shim: {
+        //         "browser-global": { exports: "browserGlobal" }
+        //     }
+        // })
+        //
+        // require(["browser-global"], function(browserGlobal){
+        //     console.log("LOADED");
+        //     console.log(browserGlobal);
+        //     console.log(require.s.contexts._.defined);
+        //     console.log(require.s.contexts._.registry);
+        // });
 
-        require.config({
-            paths: {
-                "browser-global": "resources/browser-global"
-            },
-            shim: {
-                "browser-global": { exports: "browserGlobal" }
-            }
-        })
+        var a = 1, b = 2, c = 3;
 
-        require(["browser-global"], function(browserGlobal){
-            console.log("LOADED");
-            console.log(browserGlobal);
-            console.log(require.s.contexts._.defined);
-            console.log(require.s.contexts._.registry);
-        });
+        for ( var i in window ) {
+            console.log(i, typeof window[i], window[i]);
+        }
+
     </script>
 </html>
