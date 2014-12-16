@@ -1,0 +1,1 @@
+node require-config -m /Users/cartew01/workspace/childrens-promo-tool/trunk/components/childrens-promo-tool/public/javascripts/main.js -i /Users/cartew01/workspace/childrens-promo-tool/trunk/components/childrens-promo-tool/public/libraries/angular/angular.js
