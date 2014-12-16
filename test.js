@@ -1,35 +1,29 @@
-var requirejs = require("requirejs");
+// var path = require('path')
+// var childProcess = require('child_process')
+// var phantomjs = require('phantomjs')
+// var binPath = phantomjs.path
+//
+// var childArgs = [ path.join(__dirname, "print.js") ]
+//
+// childProcess.execFile(binPath, childArgs, function(err, stdout, stderr) {
+//     console.log("child process");
+//     console.log(err);
+//     console.log(stdout);
+//     console.log(stderr);
+// })
 
-requirejs(["resources/angular-moment"], function(lib) {
-    console.log("explicitly-named");
-    console.log(lib);
-    console.log(requirejs.s.contexts._.defined);
-    console.log(requirejs.s.contexts._.registry);
+var phantom = require('phantom');
+
+
+console.log("test.js");
+
+phantom.create(function(phant) {
+
+    phant.createPage(function (page) {
+        page.injectJs("/Users/cartew01/workspace/require-config/resources/browser-global.js")
+        page.evaluate(function () { return browserGlobal.name; }, function (result) {
+            console.log('browserGlobal name - ' + result);
+            phant.exit();
+        });
+    });
 });
-
-// requirejs(["resources/amd"], function(lib) {
-//     console.log("amd");
-//     console.log(lib);
-//     console.log(requirejs.s.contexts._.defined);
-//     console.log(requirejs.s.contexts._.registry);
-// });
-
-// requirejs(["resources/dependent"], function(lib) {
-//     console.log("dependent");
-//     console.log(lib);
-//     console.log(requirejs.s.contexts._.defined);
-//     console.log(requirejs.s.contexts._.registry);
-// });
-
-// requirejs(["resources/browser-global"], function(lib) {
-//     console.log("browser-global");
-//     console.log(lib);
-//     console.log(requirejs.s.contexts._.defined);
-//     console.log(requirejs.s.contexts._.registry);
-//
-//     console.log(browserGlobal);
-// });
-
-// console.log(require("./resources/browser-global"));
-//
-// console.log(requirejs(["resources/browser-global"]));

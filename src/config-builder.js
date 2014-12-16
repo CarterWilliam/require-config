@@ -7,7 +7,7 @@ var vm = require("vm");
 
 
 function buildConfig(mainFile, inputFiles, callback) {
-    console.log("buildConfig()");
+    console.log("config-builder - buildConfig()");
     console.log(mainFile);
     console.log(inputFiles);
 
@@ -29,23 +29,24 @@ function buildConfig(mainFile, inputFiles, callback) {
             requirejs([headFile], function(amdModule){
                 var currentRegistry = Object.keys(Utils.clone(requirejs.s.contexts._.registry));
 
-                var moduleName;
-
                 if (amdModule) {
                     // Module is AMD
-                    moduleName = path.basename(headFile,'.js');
+                    var moduleName = path.basename(headFile,'.js');
+                    config.paths[moduleName] = path.relative(configBasePath, headFile);
 
                 } else if(initialRegistry.length !== currentRegistry.length) {
                     // Module is AMD with explicit name
                     currentRegistry.forEach(function(registryEntry) {
                         if(initialRegistry.indexOf(registryEntry) === -1 && !registryEntry.startsWith("_@")) {
-                            moduleName=registryEntry;
+                            config.paths[registryEntry] = path.relative(configBasePath, headFile);
                         }
                     });
 
                 } else {
                     // Module is a browser global
                     moduleName = path.basename(headFile,'.js');
+                    config.paths[moduleName] = path.relative(configBasePath, headFile);
+
 
                     // Shim etc.
                     var scriptContext = {};
@@ -57,14 +58,12 @@ function buildConfig(mainFile, inputFiles, callback) {
                     var exportables = Object.keys(scriptContext);
                     if (exportables.length === 1) {
                         // single browser global!
+                        console.log("adding to shim config");
                         config.shim[moduleName] = { exports: exportables[0] };
                     }
 
                 }
 
-
-                // Add to paths object
-                config.paths[moduleName] = path.relative(configBasePath, headFile);
 
                 processInputFileIteration(inputFilePaths, callback);
 
@@ -77,11 +76,6 @@ function buildConfig(mainFile, inputFiles, callback) {
     }
 
 }
-
-function processExplicitlyNamedAmd() {
-
-}
-
 
 module.exports = {
     buildConfig: buildConfig

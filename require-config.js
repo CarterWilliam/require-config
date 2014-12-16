@@ -36,11 +36,18 @@ module.exports = coa.Cmd()
         .short("o")
         .long("output")
     .end()
+    .opt()
+        .name("browser")
+        .title("browser")
+        .short("b")
+        .long("browser")
+        .flag()
+    .end()
     .act(function(options) {
 
         // output file default
         var output = options.output || "requirejs-configuration.js"
 
-        require("./src/main.js").main(options.mainFile, options.input, output);
+        require("./src/main.js").main(options.mainFile, options.input, output, options.browser);
     })
 .run();
