@@ -11,9 +11,9 @@ var RequireConfig = function(baseUrl) {
 }
 
 RequireConfig.prototype.addPath = function(moduleName, path) {
-	if(moduleName && path){
-		this.config.paths[moduleName] = path;
-	}
+
+    path = path.endsWith(".js") ? path.slice(0, -3) : path;
+	this.config.paths[moduleName] = path;
 };
 
 RequireConfig.prototype.addShimEntry = function(moduleName, exportables) {
