@@ -105,7 +105,7 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
                 console.log(moduleInfo);
                 page.dispose();
 
-                var configBasePath = path.dirname(mainFile);
+                var configBasePath = basePath? basePath : path.dirname(mainFile);
                 var modulePath = path.relative(configBasePath, inputPath);
 
                 switch(moduleInfo.type) {
