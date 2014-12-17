@@ -43,11 +43,17 @@ module.exports = coa.Cmd()
         .long("browser")
         .flag()
     .end()
+    .opt()
+        .name("basePath")
+        .title("base path")
+        .short("p")
+        .long("basePath")
+    .end()
     .act(function(options) {
 
         // output file default
         var output = options.output || "requirejs-configuration.js"
 
-        require("./src/main.js").main(options.mainFile, options.input, output, options.browser);
+        require("./src/main.js").main(options.mainFile, options.input, output, options.browser, options.basePath);
     })
 .run();
