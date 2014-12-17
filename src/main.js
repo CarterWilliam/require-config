@@ -12,7 +12,7 @@ function main(mainFile, inputFiles, output, browser) {
     var configBuilder = browser ? require("./phridge-config-builder") : require("./config-builder.js");
 
 
-    var config = configBuilder.buildConfig(mainFile, inputFiles, function(configuration) {
+    var config = configBuilder.buildConfig(mainFile, inputFiles, "", function(configuration) {
         console.log();
         console.log("--------------------");
         console.log();

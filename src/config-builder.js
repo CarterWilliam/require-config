@@ -4,7 +4,7 @@ var requirejs = require("requirejs");
 var Utils = require("./utils.js");
 var shimEntry = require("./shim-entry.js")
 
-function buildConfig(mainFile, inputFiles, callback) {
+function buildConfig(mainFile, inputFiles, basePath, callback) {
     console.log("config-builder - buildConfig()");
     console.log(mainFile);
     console.log(inputFiles);

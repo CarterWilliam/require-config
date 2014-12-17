@@ -7,7 +7,7 @@ var Utils = require("./utils.js");
 var requirejsPath = require.resolve("requirejs");
 
 
-function buildConfig(mainFile, inputFiles, completeCallback) {
+function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
     console.log("phridge-config-builder - buildConfig()");
     console.log(mainFile);
     console.log(inputFiles);
