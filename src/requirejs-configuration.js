@@ -1,8 +1,8 @@
 var RequireConfig = function(baseUrl) {
 
     this.config = {
-    	paths: [],
-    	shim: []
+    	paths: {},
+    	shim: {}
     };
 
     if (baseUrl) {
@@ -12,19 +12,18 @@ var RequireConfig = function(baseUrl) {
 
 RequireConfig.prototype.addPath = function(moduleName, path) {
 	if(moduleName && path){
-		this.config.paths.push({module:moduleName, path:path});
+		this.config.paths[moduleName] = path;
 	}
 };
 
 RequireConfig.prototype.addShimEntry = function(moduleName, exportables) {
 	if(moduleName && exportables){
-		this.config.shim.push({module:moduleName, exports:exportables});
+		this.config.shim[moduleName] = exportables;
 	}
 };
 
 RequireConfig.prototype.toString = function() {
-    console.log(JSON.stringify(this.config));
-    return JSON.stringify(this.config);
+    return JSON.stringify(this.config, undefined, 4);
 };
 
 module.exports = RequireConfig;
