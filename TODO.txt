@@ -1,2 +1,5 @@
 - Grunt.js plugin
-- base path
+- RequireJSConfiguration object
+- Directories as input
+- bower_components directory as input
+- possible dependencies
