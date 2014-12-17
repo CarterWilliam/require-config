@@ -2,6 +2,7 @@ require("es6-shim");
 var path = require("path");
 var phridge = require("phridge");
 var Utils = require("./utils.js");
+var RequireConfig = require("./requirejs-configuration.js");
 
 
 var requirejsPath = require.resolve("requirejs");
@@ -12,19 +13,14 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
     console.log(mainFile);
     console.log(inputFiles);
 
-    console.log(Utils);
+    var configBasePath = basePath ? basePath : path.dirname(mainFile);
+
     var inputFilePaths = inputFiles.map(function(absolutePath) {
         return path.resolve(absolutePath);
     });
     console.log(inputFilePaths);
 
-    var libraryPath = "/Users/cartew01/workspace/require-config/resources/amd.js";
-
-    var config = {
-        paths: {},
-        shim:{}
-    };
-
+    var config = new RequireConfig(configBasePath);
 
     phridge.spawn({
         loadImages: false
@@ -38,7 +34,6 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
         console.log(inputFilePaths);
 
         if (inputFilePaths.length < 1) {
-            console.log("complete");
             phantomProcess.dispose();
             console.log("phridge-config-builder - callback()");
             completeCallback(config);
@@ -104,27 +99,20 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
                 console.log(moduleInfo);
                 page.dispose();
 
-                var configBasePath = basePath? basePath : path.dirname(mainFile);
                 var modulePath = path.relative(configBasePath, inputPath);
 
                 switch(moduleInfo.type) {
                     case "AMD":
                         var moduleName = path.basename(inputPath, ".js");
-                        config.paths[moduleName] = modulePath;
+                        config.addPath(moduleName, modulePath);
                         break;
                     case "ENAMD":
-                        config.paths[moduleInfo.name] = modulePath;
+                        config.addPath(moduleInfo.name, modulePath);
                         break;
                     case "BG":
                         var moduleName = path.basename(inputPath, ".js");
-                        config.paths[moduleName] = modulePath;
-
-                        if (moduleInfo.exportables.length === 1) {
-                            config.shim[moduleName]  = { exports: moduleInfo.exportables[0] };
-                        } else if (moduleInfo.exportables.length > 1) {
-                            config.shim[moduleName] = { exports: "WARNING: Multiple exportables: " + moduleInfo.exportables.join(", ") };
-                        }
-
+                        config.addPath(moduleName, modulePath);
+                        config.addShimEntry(moduleName, moduleInfo.exportables);
                         break;
                 }
 
