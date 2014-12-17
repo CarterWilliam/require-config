@@ -12,7 +12,7 @@ function shimEntry(modulePath) {
     if (exportables.length === 1) {
         return { exports: exportables[0] };
     } else if (exportables.length > 1) {
-        return { exports: "WARNING: Mulitple exportables: " + exportables.join(", ") };
+        return { exports: "WARNING: Multiple exportables: " + exportables.join(", ") };
     }
 
 }
