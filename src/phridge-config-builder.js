@@ -40,6 +40,7 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
         if (inputFilePaths.length < 1) {
             console.log("complete");
             phantomProcess.dispose();
+            console.log("phridge-config-builder - callback()");
             completeCallback(config);
         } else {
             var inputPath = inputFilePaths.pop();
@@ -61,6 +62,7 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
                     console.log("Script loaded and ready");
 
                     var initialRegistry = extractRegistry(requirejs);
+                    var initialWindowContext = Object.keys(window);
 
                     requirejs([ libPath ], function(amd) {
 
@@ -80,7 +82,18 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
 
                             resolve({ type: "ENAMD", name: moduleName });
                         } else {
+                            console.log("BROWSER GLOBAL");
+                            var exportables = [];
+                            var currentWindowContext = Object.keys(window);
+                            console.log(currentWindowContext);
+                            currentWindowContext.forEach(function(object) {
+                                if (initialWindowContext.indexOf(object) !== -1) {
+                                    exportables.push(object);
+                                }
+                            });
+                            console.log(exportables);
                             resolve({ type: "BG" });
+
                         }
                     });
 
