@@ -78,7 +78,7 @@ function buildConfig(mainFile, inputFiles, completeCallback) {
                                 }
                             });
 
-                            resolve({ type: "SNAMD", name: moduleName });
+                            resolve({ type: "ENAMD", name: moduleName });
                         } else {
                             resolve({ type: "BG" });
                         }
@@ -100,7 +100,7 @@ function buildConfig(mainFile, inputFiles, completeCallback) {
                         var moduleName = path.basename(inputPath, ".js");
                         config.paths[moduleName] = modulePath;
                         break;
-                    case "SNAMD":
+                    case "ENAMD":
                         config.paths[moduleInfo.name] = modulePath;
                         break;
                     case "BG":
