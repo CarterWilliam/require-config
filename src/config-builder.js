@@ -12,9 +12,13 @@ function buildConfig(mainFile, inputFiles, basePath, callback) {
     logger.info(inputFiles);
     logger.info(basePath);
 
-    var configBasePath = basePath ? basePath : path.dirname(mainFile);
+    var configBasePath = basePath ? path.resolve(basePath) : path.dirname(mainFile);
 
-    var config = new RequireConfig(configBasePath);
+    var config = new RequireConfig();
+
+    if (basePath) {
+        config.addBaseUrl(path.relative(path.dirname(mainFile), basePath));
+    }
 
     processInputFileIteration(inputFiles, callback);
 

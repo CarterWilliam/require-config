@@ -15,13 +15,18 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
     logger.info(inputFiles);
     logger.info(basePath);
 
-    var configBasePath = basePath ? basePath : path.dirname(mainFile);
+    var configBasePath = basePath ? path.resolve(basePath) : path.dirname(mainFile);
+
+    var config = new RequireConfig();
+
+    if (basePath) {
+        config.addBaseUrl(path.relative(path.dirname(mainFile), basePath));
+    }
 
     var inputFilePaths = inputFiles.map(function(absolutePath) {
         return path.resolve(absolutePath);
     });
 
-    var config = new RequireConfig(configBasePath);
 
     phridge.spawn({
         loadImages: false

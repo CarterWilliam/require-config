@@ -1,11 +1,14 @@
-var RequireConfig = function(baseUrl) {
+var RequireConfig = function() {
 
     this.config = {
-        baseUrl: baseUrl,
     	paths: {},
     	shim: {}
     };
 
+}
+
+RequireConfig.prototype.addBaseUrl = function(url) {
+    this.config.baseUrl = url;
 }
 
 RequireConfig.prototype.addPath = function(moduleName, path) {
