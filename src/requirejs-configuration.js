@@ -17,9 +17,17 @@ RequireConfig.prototype.addPath = function(moduleName, path) {
 };
 
 RequireConfig.prototype.addShimEntry = function(moduleName, exportables) {
-	if(moduleName && exportables){
-		this.config.shim[moduleName] = exportables;
-	}
+
+    console.log("addShimEntry");
+    console.log(moduleName);
+    console.log(exportables);
+
+    if (exportables.length === 1) {
+        this.config.shim[moduleName]  = { exports: exportables[0] };
+    } else if (exportables.length > 1) {
+        this.config.shim[moduleName] = { exports: "WARNING: Multiple exportables: " + exportables.join(", ") };
+    }
+
 };
 
 RequireConfig.prototype.toString = function() {

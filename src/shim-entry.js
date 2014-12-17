@@ -1,20 +1,16 @@
 var fs = require("fs");
 var vm = require("vm");
 
-function shimEntry(modulePath) {
-
+function exportables(modulePath) {
+    console.log("exportables");
     var scriptContext = {};
     var script = fs.readFileSync(modulePath);
 
     vm.runInNewContext(script, scriptContext);
 
-    var exportables = Object.keys(scriptContext);
-    if (exportables.length === 1) {
-        return { exports: exportables[0] };
-    } else if (exportables.length > 1) {
-        return { exports: "WARNING: Multiple exportables: " + exportables.join(", ") };
-    }
-
+    return Object.keys(scriptContext);
 }
 
-module.exports = shimEntry;
+module.exports = {
+    exportables: exportables
+};

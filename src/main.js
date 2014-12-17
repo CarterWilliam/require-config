@@ -17,7 +17,7 @@ function main(mainFile, inputFiles, output, browser, basePath) {
         console.log();
         console.log("--------------------");
         console.log();
-        console.log(configuration);
+        console.log(configuration.toString());
         console.log();
     });
 
