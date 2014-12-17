@@ -83,16 +83,15 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
                             resolve({ type: "ENAMD", name: moduleName });
                         } else {
                             console.log("BROWSER GLOBAL");
-                            var exportables = [];
+                            var exported = [];
                             var currentWindowContext = Object.keys(window);
-                            console.log(currentWindowContext);
                             currentWindowContext.forEach(function(object) {
-                                if (initialWindowContext.indexOf(object) !== -1) {
-                                    exportables.push(object);
+                                if (initialWindowContext.indexOf(object) === -1) {
+                                    exported.push(object);
                                 }
                             });
-                            console.log(exportables);
-                            resolve({ type: "BG" });
+                            console.log(exported);
+                            resolve({ type: "BG", exportables: exported });
 
                         }
                     });
@@ -119,6 +118,13 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
                     case "BG":
                         var moduleName = path.basename(inputPath, ".js");
                         config.paths[moduleName] = modulePath;
+
+                        if (moduleInfo.exportables.length === 1) {
+                            config.shim[moduleName]  = { exports: moduleInfo.exportables[0] };
+                        } else if (moduleInfo.exportables.length > 1) {
+                            config.shim[moduleName] = { exports: "WARNING: Multiple exportables: " + moduleInfo.exportables.join(", ") };
+                        }
+
                         break;
                 }
 
