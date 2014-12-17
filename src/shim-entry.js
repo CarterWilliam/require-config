@@ -2,7 +2,6 @@ var fs = require("fs");
 var vm = require("vm");
 
 function exportables(modulePath) {
-    console.log("exportables");
     var scriptContext = {};
     var script = fs.readFileSync(modulePath);
 

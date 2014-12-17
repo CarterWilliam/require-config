@@ -1,0 +1,66 @@
+2014-12-17T13:19:46.091Z - info: --- RequireJS Configuration ---
+2014-12-17T13:21:50.133Z - info: 
+2014-12-17T13:21:50.134Z - info: --- RequireJS Configuration ---
+2014-12-17T13:21:50.134Z - info: mainFile = /Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/javascripts/main.js
+2014-12-17T13:21:50.134Z - info: inputFiles = /Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular/angular.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-route/angular-route.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/moment/moment.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-moment/angular-moment.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/bump-3.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/embed.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/jquery-1.9.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/swfobject-2.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-gantt/assets/angular-gantt.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-gantt/assets/angular-gantt-plugins.js
+2014-12-17T13:21:50.134Z - info: output = requirejs-configuration.js
+2014-12-17T13:21:50.134Z - info: browser = true
+2014-12-17T13:21:50.134Z - info: basePath = undefined
+2014-12-17T13:28:45.813Z - info: 
+2014-12-17T13:28:45.814Z - info: --- RequireJS Configuration ---
+2014-12-17T13:28:45.814Z - info: mainFile = /Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/javascripts/main.js
+2014-12-17T13:28:45.815Z - info: inputFiles = /Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular/angular.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-route/angular-route.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/moment/moment.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-moment/angular-moment.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/bump-3.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/embed.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/jquery-1.9.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/swfobject-2.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-gantt/assets/angular-gantt.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-gantt/assets/angular-gantt-plugins.js
+2014-12-17T13:28:45.815Z - info: output = requirejs-configuration.js
+2014-12-17T13:28:45.815Z - info: browser = true
+2014-12-17T13:28:45.815Z - info: basePath = undefined
+2014-12-17T13:29:07.560Z - info: 
+2014-12-17T13:29:07.561Z - info: --- RequireJS Configuration ---
+2014-12-17T13:29:07.561Z - info: mainFile = /Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/javascripts/main.js
+2014-12-17T13:29:07.562Z - info: inputFiles = /Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular/angular.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-route/angular-route.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/moment/moment.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-moment/angular-moment.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/bump-3.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/embed.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/jquery-1.9.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/swfobject-2.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-gantt/assets/angular-gantt.js,/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-gantt/assets/angular-gantt-plugins.js
+2014-12-17T13:29:07.562Z - info: output = requirejs-configuration.js
+2014-12-17T13:29:07.562Z - info: browser = true
+2014-12-17T13:29:07.562Z - info: basePath = undefined
+2014-12-17T13:29:07.613Z - info: phridge-config-builder
+2014-12-17T13:29:07.613Z - info: /Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/javascripts/main.js
+2014-12-17T13:29:07.613Z - info:  0=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular/angular.js, 1=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-route/angular-route.js, 2=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/moment/moment.js, 3=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-moment/angular-moment.js, 4=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-bootstrap/ui-bootstrap-tpls.js, 5=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/bump-3.js, 6=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/embed.js, 7=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/jquery-1.9.js, 8=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/libraries/swfobject-2.js, 9=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-gantt/assets/angular-gantt.js, 10=/Users/cartew01/workspace/childrens-promo-tool/components/childrens-promo-tool/public/bower_components/angular-gantt/assets/angular-gantt-plugins.js
+2014-12-17T13:29:07.614Z - info: undefined
+2014-12-17T13:32:46.236Z - info: 
+2014-12-17T13:32:46.237Z - info: --- RequireJS Configuration ---
+2014-12-17T13:32:46.237Z - info: mainFile = src/main.js
+2014-12-17T13:32:46.237Z - info: inputFiles = /Users/cartew01/workspace/require-config/resources/browser-global.js,resources/amd.js,resources/explicitly-named.js,resources/angular-moment.js,resources/dependent.js,resources/multi-globals.js
+2014-12-17T13:32:46.237Z - info: output = requirejs-configuration.js
+2014-12-17T13:32:46.237Z - info: browser = undefined
+2014-12-17T13:32:46.237Z - info: basePath = undefined
+2014-12-17T13:34:13.266Z - info: 
+2014-12-17T13:34:13.267Z - info: --- RequireJS Configuration ---
+2014-12-17T13:34:13.267Z - info: mainFile = src/main.js
+2014-12-17T13:34:13.267Z - info: inputFiles = /Users/cartew01/workspace/require-config/resources/browser-global.js,resources/amd.js,resources/explicitly-named.js,resources/angular-moment.js,resources/dependent.js,resources/multi-globals.js
+2014-12-17T13:34:13.267Z - info: output = requirejs-configuration.js
+2014-12-17T13:34:13.267Z - info: browser = undefined
+2014-12-17T13:34:13.267Z - info: basePath = undefined
+2014-12-17T13:34:13.330Z - info: config-builder
+2014-12-17T13:34:13.330Z - info: src/main.js
+2014-12-17T13:34:13.330Z - info:  0=/Users/cartew01/workspace/require-config/resources/browser-global.js, 1=resources/amd.js, 2=resources/explicitly-named.js, 3=resources/angular-moment.js, 4=resources/dependent.js, 5=resources/multi-globals.js
+2014-12-17T13:34:13.330Z - info: undefined
+2014-12-17T13:35:16.096Z - info: 
+2014-12-17T13:35:16.097Z - info: --- RequireJS Configuration ---
+2014-12-17T13:35:16.097Z - info: mainFile = src/main.js
+2014-12-17T13:35:16.097Z - info: inputFiles = /Users/cartew01/workspace/require-config/resources/browser-global.js,resources/amd.js,resources/explicitly-named.js,resources/angular-moment.js,resources/dependent.js,resources/multi-globals.js
+2014-12-17T13:35:16.097Z - info: output = requirejs-configuration.js
+2014-12-17T13:35:16.097Z - info: browser = undefined
+2014-12-17T13:35:16.097Z - info: basePath = undefined
+2014-12-17T13:35:16.159Z - info: config-builder
+2014-12-17T13:35:16.159Z - info: src/main.js
+2014-12-17T13:35:16.159Z - info:  0=/Users/cartew01/workspace/require-config/resources/browser-global.js, 1=resources/amd.js, 2=resources/explicitly-named.js, 3=resources/angular-moment.js, 4=resources/dependent.js, 5=resources/multi-globals.js
+2014-12-17T13:35:16.159Z - info: undefined
+2014-12-17T13:35:37.207Z - info: 
+2014-12-17T13:35:37.208Z - info: --- RequireJS Configuration ---
+2014-12-17T13:35:37.208Z - info: mainFile = src/main.js
+2014-12-17T13:35:37.208Z - info: inputFiles = /Users/cartew01/workspace/require-config/resources/browser-global.js,resources/amd.js,resources/explicitly-named.js,resources/angular-moment.js,resources/dependent.js,resources/multi-globals.js
+2014-12-17T13:35:37.208Z - info: output = requirejs-configuration.js
+2014-12-17T13:35:37.208Z - info: browser = undefined
+2014-12-17T13:35:37.208Z - info: basePath = undefined
+2014-12-17T13:35:37.270Z - info: config-builder
+2014-12-17T13:35:37.270Z - info: src/main.js
+2014-12-17T13:35:37.270Z - info:  0=/Users/cartew01/workspace/require-config/resources/browser-global.js, 1=resources/amd.js, 2=resources/explicitly-named.js, 3=resources/angular-moment.js, 4=resources/dependent.js, 5=resources/multi-globals.js
+2014-12-17T13:35:37.271Z - info: undefined

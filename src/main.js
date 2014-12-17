@@ -1,24 +1,21 @@
-var configPrinter = require("./config-printer.js");
+var logger = require("./logger.js");
 
 function main(mainFile, inputFiles, output, browser, basePath) {
 
-    console.log();
-    console.log("require-config main()");
-    console.log("mainFile = " + mainFile);
-    console.log("inputFiles = " + inputFiles);
-    console.log("output = " + output);
-    console.log("browser = " + browser);
-    console.log("basePath = " + basePath);
+    logger.info();
+    logger.info("--- RequireJS Configuration ---");
+
+    logger.info("mainFile = " + mainFile);
+    logger.info("inputFiles = " + inputFiles);
+    logger.info("output = " + output);
+    logger.info("browser = " + browser);
+    logger.info("basePath = " + basePath);
 
     var configBuilder = browser ? require("./phridge-config-builder") : require("./config-builder.js");
 
 
     var config = configBuilder.buildConfig(mainFile, inputFiles, basePath, function(configuration) {
-        console.log();
-        console.log("--------------------");
-        console.log();
         console.log(configuration.toString());
-        console.log();
     });
 
 }

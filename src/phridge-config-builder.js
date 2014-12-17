@@ -2,6 +2,7 @@ require("es6-shim");
 var path = require("path");
 var phridge = require("phridge");
 var Utils = require("./utils.js");
+var logger = require("./logger.js");
 var RequireConfig = require("./requirejs-configuration.js");
 
 
@@ -9,16 +10,16 @@ var requirejsPath = require.resolve("requirejs");
 
 
 function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
-    console.log("phridge-config-builder - buildConfig()");
-    console.log(mainFile);
-    console.log(inputFiles);
+    logger.info("phridge-config-builder");
+    logger.info(mainFile);
+    logger.info(inputFiles);
+    logger.info(basePath);
 
     var configBasePath = basePath ? basePath : path.dirname(mainFile);
 
     var inputFilePaths = inputFiles.map(function(absolutePath) {
         return path.resolve(absolutePath);
     });
-    console.log(inputFilePaths);
 
     var config = new RequireConfig(configBasePath);
 
@@ -30,12 +31,8 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
 
     function processInputFileIteration(inputFilePaths, phantomProcess) {
 
-        console.log("processInputFileIteration");
-        console.log(inputFilePaths);
-
         if (inputFilePaths.length < 1) {
             phantomProcess.dispose();
-            console.log("phridge-config-builder - callback()");
             completeCallback(config);
         } else {
             var inputPath = inputFilePaths.pop();
@@ -54,7 +51,6 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
 
                 var script = document.createElement('script');
                 script.onload = function() {
-                    console.log("Script loaded and ready");
 
                     var initialRegistry = extractRegistry(requirejs);
                     var initialWindowContext = Object.keys(window);
@@ -62,12 +58,10 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
                     requirejs([ libPath ], function(amd) {
 
                         var currentRegistry = extractRegistry(requirejs);
-                        console.log(currentRegistry);
 
                         if (amd) {
                             resolve({ type: "AMD" });
                         } else if (currentRegistry.length > initialRegistry.length) {
-                            console.log("Module is Strictly named AMD");
                             var moduleName;
                             currentRegistry.forEach(function(registryEntry) {
                                 if(initialRegistry.indexOf(registryEntry) === -1) {
@@ -77,7 +71,6 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
 
                             resolve({ type: "ENAMD", name: moduleName });
                         } else {
-                            console.log("BROWSER GLOBAL");
                             var exported = [];
                             var currentWindowContext = Object.keys(window);
                             currentWindowContext.forEach(function(object) {
@@ -85,7 +78,6 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
                                     exported.push(object);
                                 }
                             });
-                            console.log(exported);
                             resolve({ type: "BG", exportables: exported });
 
                         }
@@ -96,7 +88,6 @@ function buildConfig(mainFile, inputFiles, basePath, completeCallback) {
                 document.getElementsByTagName('head')[0].appendChild(script);
 
             }).then(function(moduleInfo) {
-                console.log(moduleInfo);
                 page.dispose();
 
                 var modulePath = path.relative(configBasePath, inputPath);
