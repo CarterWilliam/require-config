@@ -9,7 +9,8 @@ function buildConfig(mainFile, inputFiles, basePath, callback) {
     console.log(mainFile);
     console.log(inputFiles);
 
-    var configBasePath = path.dirname(mainFile);
+    var configBasePath = basePath? basePath : path.dirname(mainFile);
+    console.log("configBasePath = " + configBasePath);
 
     var config = {
         paths: {},
