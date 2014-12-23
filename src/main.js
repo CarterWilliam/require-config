@@ -2,16 +2,16 @@ var logger = require("./logger.js");
 
 function main(mainFile, inputFiles, output, browser, basePath) {
 
-    logger.info();
-    logger.info("--- RequireJS Configuration ---");
+    logger.info("\n\n");
+    logger.info("--- RequireJS Configuration ---\n");
 
-    logger.info("mainFile = " + mainFile);
-    logger.info("inputFiles = " + inputFiles);
-    logger.info("output = " + output);
-    logger.info("browser = " + browser);
-    logger.info("basePath = " + basePath);
+    logger.info("mainFile: " + mainFile);
+    logger.info("inputFiles: " + inputFiles);
+    logger.info("output: " + output);
+    logger.info("browser: " + browser);
+    logger.info("basePath: " + basePath);
 
-    var configBuilder = browser ? require("./phridge-config-builder") : require("./config-builder.js");
+    var configBuilder = browser ? require("./phridge-config-builder") : require("./jsdom-config-builder.js");
 
 
     var config = configBuilder.buildConfig(mainFile, inputFiles, basePath, function(configuration) {
